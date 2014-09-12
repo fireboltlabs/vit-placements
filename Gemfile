@@ -39,11 +39,10 @@ gem 'pry', :group => :development
 gem 'pry-doc'
 
 gem 'therubyracer'
+
 gem 'less-rails'
 
 gem 'figaro'
-
-gem 'pg' group: :production
 
 gem 'thin'
 
