@@ -1,0 +1,43 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Register No</th>
+                  <th>Full Name</th>
+                  <th>Branch</th>
+                  <th>Email Id</th>
+                  <th>Mobile</th>
+                  <th>SSC</th>
+                  <th>Inter or Diplomo</th>
+                  <th>B.Tech</th>
+                  <th>Backlogs</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @s.each do |student|%>
+                <tr>
+                  <td><%= student.regd_no %></td>
+
+                  <td><%= student.first_name+" "+student.middle_name+" "+
+                  student.last_name%></td>
+
+                  <td><%= student.btech.branch %></td>
+
+                  <td><%= student.email %></td>
+
+                  <td><%= student.mobile %></td>
+
+                  <td><%= student.ssc.perc %></td>
+
+                  <td><%= student.inter_or_diplomo.perc %></td>
+
+                  <td><%= student.btech.total_perc %></td>
+
+                  <td><%= student.btech.active_backlogs %></td>
+                </tr>
+              <% end %>
+              </tbody>
+        </table>
+</div>
+</div>

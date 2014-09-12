@@ -1,0 +1,76 @@
+<div class="border-form-student">
+<CENTER><h2>Student Details</h2></CENTER><br>
+<style type="text/css">
+  td{
+    color :#222;
+  }
+  .value{
+    color :#428bca;;
+  }
+</style>
+<center><%= image_tag @student.photo.url(:thumb)%></center><br>
+<div class="table-responsive">
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <td>Register No</td>
+                  <td class="value"><%= @student.regd_no %></td>
+                </tr>
+                <tr>
+                  <td>First Name</td>
+                  <td class="value"><%= @student.first_name %></td>
+                </tr>
+                <tr>
+                  <td>Middle Name</td>
+                  <td class="value"><%= @student.middle_name %></td>
+                </tr>
+                <tr>
+                  <td>Last Name</td>
+                  <td class="value"><%= @student.last_name %></td>
+                </tr>
+
+                <tr>
+                  <td>Email Id</td>
+                  <td class="value"><%= @student.email %></td>
+                </tr>
+                <tr>
+                  <td>Mobile</td>
+                  <td class="value"><%= @student.mobile %></td>
+                </tr>
+
+                <tr>
+                  <td>SSC Percentage</td>
+                  <td class="value"><%= @student.ssc.perc %></td>
+                </tr>
+
+                <tr>
+                  <td>Inter or Diplomo Percentage</td>
+                  <td class="value"><%= @student.inter_or_diplomo.perc %></td>
+                </tr>
+                <tr>
+                  <td>Branch</td>
+                  <td class="value"><%= @student.btech.branch %></td>
+                </tr>
+
+                <tr>
+                  <td>Total Percentage</td>
+                  <td class="value"><%= @student.btech.total_perc %></td>
+                </tr>
+                <tr>
+                  <td>Active Backlogs</td>
+                  <td class="value"><%= @student.btech.active_backlogs %></td>
+                </tr>
+                <tr>
+                  <td>Backlogs in History</td>
+                  <td class="value"><%= @student.btech.backlogs_history %></td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+<center>
+<%= link_to "Edit", edit_student_path(@student), :class => "btn btn-success" %> |
+<%= link_to 'Back', students_path, :class => "btn btn-success"%></center>
+</div>

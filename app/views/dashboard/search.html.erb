@@ -1,0 +1,30 @@
+<center>
+  <h1>Search Student</h1><br>
+
+</center>
+
+<style type="text/css">
+  .form-group{
+    width : 200px;
+    display : inline;
+  }
+
+</style>
+
+<center>
+<div id = "search">
+<%= form_tag(:dashboard_search,:method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Student ID",:class=> "form-group"%>
+  <%= submit_tag "Search", :name => nil, :class => "btn btn-primary", :id=>"button"%>
+<% end %>
+
+
+</div>
+</center>
+
+<script type="text/javascript">
+
+    $("#button").click(function(){
+        <%= render "search"%>
+});
+</script>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  regd_no: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  father_name: MyString
+  email: MyString
+  mobile: 1
+  father_mobile: 1
+  placement: false
+  jkc: false
+  cilvils: false
+  further_studies: MyString
+
+two:
+  regd_no: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  father_name: MyString
+  email: MyString
+  mobile: 1
+  father_mobile: 1
+  placement: false
+  jkc: false
+  cilvils: false
+  further_studies: MyString

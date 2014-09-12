@@ -1,0 +1,20 @@
+<div class="border-form-student">
+<% @students.each do |student| %>
+<div class="container-fluid">
+    <div id="pic">
+      <%= image_tag student.photo.url(:thumb)%>
+    </div>
+    <div id="data">
+        <p>Register No : <%= student.regd_no %></p>
+        <p>Name : <%= student.first_name+ " "+ student.middle_name + " " + student.last_name %></p>
+        <p>Email : <%= student.email %>
+        <p>Mobile : <%= student.mobile %></p>
+    </div>
+    <div id="btns">
+        <%= link_to 'Show', student, :class => "btn btn-primary btn-student"%>
+        <%= link_to 'Edit', edit_student_path(student), :class => "btn btn-success btn-student"%>
+        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' },
+        :class => "btn btn-warning btn-student"%>
+    </div>
+</div><br>
+<% end %>

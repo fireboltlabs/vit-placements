@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Placements</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+  body{
+    background-color : #a78d57;
+  }
+
+ </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <%= link_to "VIT Placements", :root, :class => "navbar-brand" %>
+    </div>
+
+    <% if !user_signed_in? %>
+    <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Home", :root %></li>
+        <li><a href="/home/companies">Our Companies</a></li>
+        <li><a href="/home/updates">Updates</a></li>
+        <li><a href="/home/links">Useful Links</a></li>
+    <% end -%>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li class="navbar-text">Weclome <%= current_user.first_name %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+
+        <% else %>
+          <li><%= link_to "Register Here", :new_student  %></li>
+          <li><%= link_to "Login", new_user_session_path %></li>
+
+    <% end %>
+    </ul>
+  </div>
+</nav>
+<div class = "error">
+<center><p id="notice"><%= notice %></p></center>
+</div>
+
+<% if user_signed_in? %>
+  <%= render "side" %>
+<% end %>
+
+
+
+<%= yield %>
+
+</body>
+</html>
+
+
+

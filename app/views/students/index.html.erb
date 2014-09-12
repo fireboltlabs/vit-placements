@@ -1,0 +1,63 @@
+<div class="border-form-student">
+<center>
+<h1>Registered Students</h1></center>
+<br><br>
+<style type="text/css">
+  .container-fluid{
+    border : 10px;
+  }
+  #pic{
+    float:left;
+    width:20%;
+    }
+
+   #btns{
+    float:left;
+    width:20%;
+   }
+
+   #data{
+    float:left;
+    width : 60%;
+   }
+
+   br{
+    margin :1px;
+   }
+
+   .btn{
+    margin-bottom: 5px;
+   }
+
+</style>
+<% @students.each do |student| %>
+<div class="container-fluid">
+    <div id="pic">
+      <%= image_tag student.photo.url(:thumb)%>
+    </div>
+    <div id="data">
+        <p>Register No : <%= student.regd_no %></p>
+        <p>Name : <%= student.first_name+ " "+ student.middle_name + " " + student.last_name %></p>
+        <p>Email : <%= student.email %>
+        <p>Mobile : <%= student.mobile %></p>
+    </div>
+    <div id="btns">
+        <%= link_to 'Show', student, :class => "btn btn-primary"%>
+        <%= link_to 'Edit', edit_student_path(student), :class => "btn btn-success"%>
+        <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' },
+        :class => "btn btn-warning"%>
+    </div>
+</div><br>
+<% end %>
+
+
+
+<br>
+<br>
+<br>
+<center>
+<%= link_to "New Student", :new_student, :class => "btn btn-success" %></center>
+
+</div>
+
+
