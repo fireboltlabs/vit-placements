@@ -5,7 +5,6 @@
       <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
       <ul>
       <% @student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
       <% end %>
       </ul>
     </div>
@@ -14,7 +13,7 @@
   <hr><h3> <center> Basic Information </center></h3><hr><br>
 
 <%= f.input :regd_no, :label => "Register No", :error => "This is a required question"%><br>
-  <%= f.input :first_name , :label => "First Name", :required=>true, :hint => "(As per SSC Certificate)" %>
+  <%= f.input :first_name , :label => "First Name", :required=>true, :hint => "(As per SSC Certificate)"%>
   <br>
   <%= f.input :middle_name , :label => "Middle Name", :hint => "(As per SSC Certificate)"%>
    <%= f.input :last_name , :label => "Last Name", :required=>true,:hint => "(As per SSC Certificate)"%>
@@ -25,11 +24,30 @@
   :hint=> "(Alerts will be sent to this Number)" %><br>
 
   <%= f.input :father_mobile , :label => "Father Mobile No", :required=>true %><br>
-  <%= f.input :placement , :label => "Are You Intrested in Placement?", :required=>true , as: :radio_buttons%>
-  <br>
-  <%= f.input :jkc , :label => "Are You Regestered with JKC?", :required=>true  , as: :radio_buttons%><br>
-  <%= f.input :cilvils , :label => "Are You Intrested in Civil Examinations?", :required=>true, as: :radio_buttons %><br>
-  <%= f.input :further_studies , :label => "Are You Intrested in Further Studies", :required=>true, as: :radio_buttons%><br>
+
+  <%= f.input :placement,
+            :as => :select,
+            :collection => [['No',false],['Yes',true]],
+            :include_blank => false,
+            :label => "Are You Intrested in Placement?" %><br>
+  <%= f.input :jkc,
+            :as => :select,
+            :collection => [['No',false],['Yes',true]],
+            :include_blank => false,
+            :label => "Are You Regestered with JKC?" %><br>
+
+  <%= f.input :civils,
+            :as => :select,
+            :collection => [['No',false],['Yes',true]],
+            :include_blank => false,
+            :label => "Are You Intrested in Civil Examinations?" %><br>
+
+  <%= f.input :further_studies,
+            :as => :select,
+            :collection => [['No',false],['Yes',true]],
+            :include_blank => false,
+            :label => "Are You Intrested in Further Studies" %><br>
+
   <%= f.input :emcet_rank , :label => "EAMCET Rank", :required=>true %><br>
   <p>Upload Your Photo</p>
   <%= f.file_field :photo,:required=> true  %><br>
@@ -37,10 +55,10 @@
 
   <%= f.simple_fields_for :ssc do |s| %>
         <%= s.input :board, :label => "SSC Board", collection:["ICSE","CBSE","State Board-AP"],
-       :required=>true %><br>
+       :required=>true,:include_blank => false %><br>
         <%= s.input :school_name, :label => "SSC School Name", :required=>true %><br>
         <%= s.input :year , :label => "SSC Year of Passing",collection:2008..2025,
-        :required=>true %><br>
+        :required=>true ,:include_blank => false%><br>
         <%= s.input :marks, :label => "SSC Total Marks", :required=>true %><br>
         <%= s.input :perc , :label => "SSC Percentage", :required=>true %><br>
   <% end %>
@@ -49,9 +67,9 @@
   <h3> <center> Intermediate or Diplomo Details </center></h3><hr><br>
 
   <%= f.simple_fields_for :inter_or_diplomo do |i| %>
-        <%= i.input :board, :label => "Inter/ Diplomo Board",collection:[ "ICSE", "CBSE", "State Board-AP"], :required=>true %><br>
+        <%= i.input :board, :label => "Inter/ Diplomo Board",collection:[ "ICSE", "CBSE", "State Board-AP"], :required=>true,:include_blank => false %><br>
         <%= i.input :clz_name, :label => "Inter/ Diplomo College Name", :required=>true %><br>
-        <%= i.input :year , :label => "Inter/ Diplomo Year of Passing",collection:2008..2025, :required=>true %><br>
+        <%= i.input :year , :label => "Inter/ Diplomo Year of Passing",collection:2008..2025, :required=>true,:include_blank => false %><br>
         <%= i.input :marks, :label => "Inter/ Diplomo Total Marks", :required=>true %><br>
         <%= i.input :perc , :label => "Inter/ Diplomo Percentage", :required=>true %><br>
   <% end %>
@@ -64,30 +82,30 @@
 
 <%= f.simple_fields_for :btech do |b| %>
         <%= b.input :branch, :label => "Branch", :required=>true,
-        collection:[ "ECE", "EEE", "CSE","IT","Mechanical","Civil"] %><br>
+        collection:[ "ECE", "EEE", "CSE","IT","Mechanical","Civil"],:include_blank => false %><br>
         <%= b.input :one_one_marks, :label => "B.Tech 1-1 Total Marks", :required=>true %><br>
         <%= b.input :one_one_perc, :label => "B.Tech 1-1 Total Percentage", :required=>true  %><br>
-        <%= b.input :one_one_backlogs, :label => "B.Tech 1-1 Backlogs",collection:0..6, :required=>true  %><br>
+        <%= b.input :one_one_backlogs, :label => "B.Tech 1-1 Backlogs",collection:0..6, :required=>true ,:include_blank => false %><br>
         <h3>B.Tech 1-2 Details</h3><hr>
         <%= b.input :one_two_marks, :label => "B.Tech 1-2 Total Marks", :required=>true  %><br>
         <%= b.input :one_two_perc, :label => "B.Tech 1-2 Total Percentage", :required=>true  %><br>
-        <%= b.input :one_two_backlogs, :label => "B.Tech 1-2 Backlogs", :required=>true, collection:0..6 %><br>
+        <%= b.input :one_two_backlogs, :label => "B.Tech 1-2 Backlogs", :required=>true, collection:0..6,:include_blank => false %><br>
         <h3>B.Tech 2-1 Details</h3><hr>
         <%= b.input :two_one_marks, :label => "B.Tech 2-1 Total Marks", :required=>true  %><br>
         <%= b.input :two_one_perc, :label => "B.Tech 2-1 Total Percentage", :required=>true  %><br>
-        <%= b.input :two_one_backlogs, :label => "B.Tech 1-2 Backlogs", :required=>true, collection:0..6 %><br>
+        <%= b.input :two_one_backlogs, :label => "B.Tech 1-2 Backlogs", :required=>true, collection:0..6 ,:include_blank => false%><br>
         <h3>B.Tech 2-2 Details</h3><hr>
         <%= b.input :two_two_marks, :label => "B.Tech 2-2 Total Marks", :required=>true  %><br>
         <%= b.input :two_two_perc, :label => "B.Tech 2-2 Total Percentage", :required=>true  %><br>
-        <%= b.input :two_two_backlogs, :label => "B.Tech 2-2 Backlogs", :required=>true, collection:0..6 %><br>
+        <%= b.input :two_two_backlogs, :label => "B.Tech 2-2 Backlogs", :required=>true, collection:0..6,:include_blank => false %><br>
         <h3>B.Tech 3-1 Details</h3><hr>
         <%= b.input :three_one_marks, :label => "B.Tech 3-1 Total Marks", :required=>true %><br>
         <%= b.input :three_one_perc, :label => "B.Tech 3-1 Total Percentage", :required=>true %><br>
-        <%= b.input :three_one_backlogs, :label => "B.Tech 3-1 Backlogs", :required=>true, collection:0..6%><br>
+        <%= b.input :three_one_backlogs, :label => "B.Tech 3-1 Backlogs", :required=>true, collection:0..6,:include_blank => false%><br>
         <h3>B.Tech 3-2 Details</h3><hr>
         <%= b.input :three_two_marks, :label => "B.Tech 3-2 Total Marks", :required=>true %><br>
         <%= b.input :three_two_perc, :label => "B.Tech 3-2 Total Percentage", :required=>true %><br>
-        <%= b.input :three_two_backlogs, :label => "B.Tech 3-2 Backlogs", :required=>true, collection:0..6 %><br>
+        <%= b.input :three_two_backlogs, :label => "B.Tech 3-2 Backlogs", :required=>true, collection:0..6 ,:include_blank => false%><br>
         <h3>B.Tech Overall Details</h3><hr>
         <%= b.input :total_perc, :label => "Overall Percentage Upto 3-2", :required=>true %><br>
         <%= b.input :active_backlogs, :label => "Number of Active Backlogs", :required=>true %><br>

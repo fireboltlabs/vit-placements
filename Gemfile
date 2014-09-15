@@ -42,9 +42,6 @@ gem 'therubyracer'
 gem 'less-rails'
 
 gem 'figaro'
-
-gem 'pg' group: :production
-
 gem 'thin'
 
 

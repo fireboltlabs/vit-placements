@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20140912025327) do
     t.integer  "father_mobile"
     t.boolean  "placement"
     t.boolean  "jkc"
-    t.boolean  "cilvils"
+    t.boolean  "civils"
     t.boolean  "further_studies"
     t.datetime "created_at"
     t.datetime "updated_at"

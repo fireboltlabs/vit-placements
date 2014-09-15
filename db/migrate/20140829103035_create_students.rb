@@ -11,7 +11,7 @@ class CreateStudents < ActiveRecord::Migration
       t.integer :father_mobile
       t.boolean :placement
       t.boolean :jkc
-      t.boolean :cilvils
+      t.boolean :civils
       t.boolean :further_studies
       t.timestamps
     end
