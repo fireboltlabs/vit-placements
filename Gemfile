@@ -39,9 +39,14 @@ gem 'pry', :group => :development
 gem 'pry-doc'
 
 gem 'therubyracer'
+
 gem 'less-rails'
 
 gem 'figaro'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10cced701b7277c284c483b1a8e4f06b85f77585
 gem 'thin'
 
 
