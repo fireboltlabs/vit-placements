@@ -1,5 +1,38 @@
-<% @updates.each do |update| %>
-    <h1><%= update.title %></h1>
-    <p><%= update.post %></p>
-<%end%>
+<style type="text/css">
+    .scroll-block{
+        width :800px;
+        height:400px;
+        padding-top: 50px;
+
+        border-width: 10px;
+        border-style: solid;
+        border-width:thin;
+        border-color: #FFFFFF;
+    h2{
+        color : ##CC9139;
+    }
+
+    }
+
+</style>
+<center>
+<h1>Latest Updates</h1>
+<div class="scroll-block">
+    <marquee truespeed scrollamount="2" scrolldelay="60" onmouseover="this.scrollAmount='0'" onmouseout="this.scrollAmount='1'" direction="up" height="190">
+        <% @updates.each do |update| %>
+            <ul>
+            <a
+            <li>
+            <div class="title"><%= update.title %></p>
+            <%= update.post %>
+            </li>
+            </ul>
+        <%end%>
+    </marquee>
+ </div>
+</center>
+
+
+
+
 
