@@ -1,11 +1,38 @@
-<div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+<style type="text/css">
+    .row{
+        .float:left;
+    }
+    .nav-sidebar{
+        background-color: #222222;
+        border-color: #080808;
+        margin-left: -15px;
+        margin-top: -20px;
+        height: 600px;
+        margin: 0,auto;
+        border-radius: 5px;
+
+    }
+</style>
+
+<div class="row-fluid">
+        <div class="col-lg-2">
         <ul class="nav nav-sidebar">
             <li><%= link_to "Students", :dashboard_list %></li>
             <li><%= link_to "Filter", :dashboard_filter %></li>
             <li><%= link_to "Search", :dashboard_search %></li>
             <li><%= link_to "Compose Mail", :dashboard_mail %></li>
-            <li><%= link_to "New Update", :dashboard_post %></li>
+            <li><%= link_to "New Update", :new_update %></li>
+            <li><%= link_to "Marks", :new_update %></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
 
           </ul>
         </div>

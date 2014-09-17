@@ -3,16 +3,37 @@
         width :800px;
         height:400px;
         padding-top: 50px;
+        padding-right:50px;
 
         border-width: 10px;
         border-style: solid;
         border-width:thin;
         border-color: #FFFFFF;
-    h2{
-        color : ##CC9139;
+        border-radius: 25px;
+    }
+    .title{
+        color : #5C002E;
+        font-size: large;
+        font-weight:bold;
+    }
+    .post{
+
+        color :#ffffff;
+        font-size:14px;
+        font-family: Verdana, sans-serif;
+        font-weight:normal;
     }
 
+    .date{
+        color:#ffffff;
+        font-size:small;
+        color:#CCFF33;
     }
+
+    ul{
+        list-style-type: none;
+    }
+
 
 </style>
 <center>
@@ -21,16 +42,20 @@
     <marquee truespeed scrollamount="2" scrolldelay="60" onmouseover="this.scrollAmount='0'" onmouseout="this.scrollAmount='1'" direction="up" height="190">
         <% @updates.each do |update| %>
             <ul>
-            <a
             <li>
-            <div class="title"><%= update.title %></p>
-            <%= update.post %>
+            <div class="title" align="left" ><%= update.title %></p>
+            <div class="post" align="justify"><%= update.post %></div>
+            <div class="date" align="left">
+            <%= update.created_at.to_formatted_s(:rfc822) %></div>
+            <hr>
+
             </li>
             </ul>
         <%end%>
     </marquee>
  </div>
 </center>
+
 
 
 
