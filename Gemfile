@@ -48,6 +48,8 @@ gem 'thin'
 
 gem 'bootstrap_form'
 
+gem 'ransack'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

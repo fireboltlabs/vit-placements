@@ -1,0 +1,59 @@
+<div class="col-lg-10">
+<center><h2>Filter Student</h2></center><br>
+<%= search_form_for @q do |f|%>
+  <%= f.condition_fields do |c| %>
+  <div class="filed">
+    <%= c.attribute_fields do |a|%>
+      <%= a.attribute_select associations:[:btech, :ssc,:inter_or_diplomo]%>
+    <% end %>
+    <%= c.predicate_select %>
+    <%= c.value_fields do |v|%>
+      <%= v.text_field :value %>
+    <% end %>
+  <% end %> 
+  </div>
+  <div class="actions"><%= f.submit "Filter" %></div>
+<% end %>
+
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Register No</th>
+                  <th>Full Name</th>
+                  <th>Branch</th>
+                  <th>Email Id</th>
+                  <th>Mobile</th>
+                  <th>SSC</th>
+                  <th>Inter or Diplomo></th>
+                  <th>B.Tech</th>
+                  <th>Backlogs</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @students.each do |student|%>
+                <tr>
+                  <td><%= student.regd_no %></td>
+
+                  <td><%= student.first_name+" "+student.middle_name+" "+
+                  student.last_name%></td>
+
+                  <td><%= student.btech.branch %></td>
+
+                  <td><%= student.email %></td>
+
+                  <td><%= student.mobile %></td>
+
+                  <td><%= student.ssc.perc %></td>
+
+                  <td><%= student.inter_or_diplomo.perc %></td>
+
+                  <td><%= student.btech.total_perc %></td>
+
+                  <td><%= student.btech.active_backlogs %></td>
+                </tr>
+              <% end %>
+              </tbody>
+        </table>
+</div>
+</div>

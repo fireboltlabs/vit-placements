@@ -5,17 +5,21 @@ class DashboardController < ApplicationController
   end
 
   def list
-    @s = Student.all
+    @q = Student.ransack(params[:q])
+    @students = @q.result.includes(:ssc, :inter_or_diplomo, :btech)
+
   end
 
 
   def filter
+    @q = Student.ransack(params[:q])
+    @students = @q.result.includes(:ssc, :inter_or_diplomo, :btech)
+    @q.build_condition
+
   end
 
   def search
-    if params[:search]
-      @students = Student.where("regd_no LIKE ?","%#{:search}%")
-    end
+
   end
 
   def mail

@@ -1,21 +1,22 @@
 <div class="col-lg-10">
+<center><h2>Registered Students</h2></center><br>
 <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>Register No</th>
+                  <th><%=sort_link @q, :student_regd_no, "Register No"%></th>
                   <th>Full Name</th>
-                  <th>Branch</th>
+                  <th><%= sort_link @q, :btech_branch, "Branch"%></th>
                   <th>Email Id</th>
                   <th>Mobile</th>
-                  <th>SSC</th>
-                  <th>Inter or Diplomo</th>
-                  <th>B.Tech</th>
+                  <th><%= sort_link @q, :ssc_perc, "SSC" %></th>
+                  <th><%= sort_link @q, :inter_or_diplomo_perc, "Inter or Diplomo"%></th>
+                  <th><%= sort_link @q, :btech_total_perc, "B.Tech" %></th>
                   <th>Backlogs</th>
                 </tr>
               </thead>
               <tbody>
-              <% @s.each do |student|%>
+              <% @students.each do |student|%>
                 <tr>
                   <td><%= student.regd_no %></td>
 
